@@ -30,11 +30,11 @@ public class Client implements Runnable{
 			InputStream in = new BufferedInputStream(new DataInputStream(socket.getInputStream()));
 			OutputStream out = new BufferedOutputStream(new DataOutputStream(socket.getOutputStream()));
 		) {
-			byte[] bytes = new byte[8 * 1024];
 			Thread.sleep(3000);
 			out.write(generateMessage(this.filename).getBytes());
 			out.flush();
 
+			byte[] bytes = new byte[8 * 1024];
 			in.read(bytes);
 			System.out.println(new String(bytes));
 
